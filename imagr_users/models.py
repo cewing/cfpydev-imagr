@@ -175,11 +175,8 @@ class Relationship(models.Model):
         'imagr_users.ImagrUser',
         related_name='relationships_to'
     )
-    follower_status = models.IntegerField(choices=FOLLOWER_STATUSES)
-    friendship = models.NullBooleanField(null=True, blank=True, default=None)
-
-    class Meta:
-        unique_together = ('left', 'right')
+    follower_status = models.IntegerField(choices=FOLLOWER_STATUSES, default=0)
+    friendship = models.NullBooleanField(null=True, blank=True, default=False)
 
     def __unicode__(self):
         symbol = FOLLOWER_SYMBOLS.get(self.follower_status, ' - ')
