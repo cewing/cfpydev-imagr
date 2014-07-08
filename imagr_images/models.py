@@ -40,6 +40,9 @@ class Photo(models.Model):
     def __unicode__(self):
         return self.title
 
+    def size(self):
+        return self.image.size
+
 
 class Album(models.Model):
     title = models.CharField(max_length=128)
