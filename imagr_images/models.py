@@ -36,12 +36,14 @@ class Photo(models.Model):
     date_uploaded = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
     published = models.IntegerField(choices=PRIVACY_LEVELS)
+    size = models.PositiveIntegerField(default=0, editable=False)
 
     def __unicode__(self):
         return self.title
 
-    def size(self):
-        return self.image.size
+    def save(self, *args, **kwargs):
+        self.size = self.image.size
+        super(Photo, self).save(*args, **kwargs)
 
 
 class Album(models.Model):
