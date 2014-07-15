@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'imagr_users',
     'imagr_images',
     'south',
+    'registration',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -86,5 +87,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_URL = 'http://localhost:8000/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR + "/media/"
